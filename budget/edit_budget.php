@@ -169,10 +169,6 @@
             <div class="row mb-3">
               <div class="mb-3">
                 <h5>Edit Budget</h5>
-              </div>
-              <div class="d-inline-flex gap-1">
-                <a href="#" class="btn btn-primary" role="button">Add Budget</a>
-                <a href="#" class="btn btn-primary" role="button">Manage Budget</a>
               </div>              
             </div>
 
