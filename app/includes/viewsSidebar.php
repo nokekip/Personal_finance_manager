@@ -58,6 +58,20 @@
                     </li>
                 </ul>
             </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed" data-bs-target="#category" data-bs-toggle="collapse" arial-expanded="false">
+                    <i class="fa-solid fa-tag pe-2"></i>
+                    Categories
+                </a>
+                <ul id="category" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="<?= BASE_URL . '/views/category/create_category.php' ?>" class="sidebar-link">Create Category</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="<?= BASE_URL . '/views/category/manage_category.php' ?>" class="sidebar-link">Manage Categories</a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
