@@ -19,7 +19,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- ======== Custom CSS ======== -->
-    <link rel="stylesheet" href="..././assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
   </head>
 
   <body>
