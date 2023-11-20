@@ -50,7 +50,7 @@
                                     <button type="submit" class="btn btn-primary">Login</button>
                                 </div>
                                 <div class="mb-3">
-                                    <div class="form-text">Dont have an acount? 
+                                    <div class="form-text">Don't have an acount? 
                                         <a href="register.php" class="text-primary">Register here</a>
                                     </div>
                                 </div>
