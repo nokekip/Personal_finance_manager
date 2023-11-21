@@ -99,3 +99,27 @@ function create($table, $data) {
     return $id;
 }
 
+// update table
+function update($table, $id, $data)
+{
+    global $conn;
+
+    $sql = "UPDATE $table SET ";
+
+    $i = 0;
+    foreach ($data as $key => $value) {
+        if ($i === 0) {
+            $sql = $sql . " $key = ?";
+        } else {
+            $sql = $sql . ", $key = ?";
+        }
+        $i++;
+    }
+
+    $sql = $sql . " WHERE id=?";
+    $data['id'] = $id;
+
+    $stmt = executeQuery($sql, $data);
+    $id = $stmt->insert_id;
+    return $stmt->affected_rows;
+}
