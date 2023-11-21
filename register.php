@@ -72,7 +72,7 @@ include(ROOT_PATH . "/app/controllers/users.php");
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-text text-center">Have an acount?
-                                        <a href="login.php" class="text-primary">Login here</a>
+                                        <a href="<?= BASE_URL . '/login.php' ?>" class="text-primary">Login here</a>
                                     </div>
                                 </div>
                             </form>

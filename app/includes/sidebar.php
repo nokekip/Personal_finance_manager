@@ -81,7 +81,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="<?= BASE_URL . '/logout.php' ?>" class="sidebar-link">
                     <i class="fa-solid fa-right-from-bracket pe-2"></i>
                     Logout
                 </a>

@@ -54,7 +54,7 @@ include(ROOT_PATH . "/app/controllers/users.php");
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-text text-center">Don't have an acount? 
-                                        <a href="register.php" class="text-primary">Register here</a>
+                                        <a href="<?= BASE_URL . '/register.php' ?>" class="text-primary">Register here</a>
                                     </div>
                                 </div>
                             </form>
