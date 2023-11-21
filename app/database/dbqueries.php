@@ -76,3 +76,27 @@ function selectOne($table, $conditions) {
     $records = $stmt->get_result()->fetch_assoc();
     return $records;
 }
+
+// insert a new record into table
+function create($table, $data) {
+    global $conn;
+
+    // insert into table variable and set the values for the respective columns dynamically
+    $sql = "INSERT INTO $table SET ";
+    $i = 0;
+
+    foreach($data as $key => $value) {
+        if($i === 0) {
+            $sql = $sql . " $key = ?";
+        } else {
+            $sql = $sql . ", $key = ?";
+        }
+        $i++;
+    }
+    $stmt = executeQuery($sql, $data);
+    $id = $stmt->insert_id;
+    return $id;
+}
+
+$dat = ['username' => 'test', 'name' => 'test John', 'email' => 'test@test.com', 'phone' => '0712345687', 'password' => 'pass'];
+create('Users', $dat);
