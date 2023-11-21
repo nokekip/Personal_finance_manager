@@ -98,5 +98,3 @@ function create($table, $data) {
     return $id;
 }
 
-$dat = ['username' => 'test', 'name' => 'test John', 'email' => 'test@test.com', 'phone' => '0712345687', 'password' => 'pass'];
-create('Users', $dat);
