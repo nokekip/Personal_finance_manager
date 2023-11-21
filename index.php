@@ -1,4 +1,7 @@
-<?php include("path.php"); ?>
+<?php include("path.php");
+include(ROOT_PATH . "/app/database/dbqueries.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
   <head>
@@ -41,6 +44,7 @@
 
         <main class="content px-3 py-2">
           <div class="container-fluid">
+            <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
             <div class="row mb-3">
               <div class="mb-3">
                 <h5>Summary</h5>
