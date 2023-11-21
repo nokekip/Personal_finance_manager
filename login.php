@@ -1,4 +1,6 @@
-<?php include("path.php"); ?>
+<?php include("path.php");
+include(ROOT_PATH . "/app/controllers/users.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,17 +39,18 @@
                             <h3 class="text-center">Login</h3>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="login.php" method="POST">
+                            <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
                                 <div class="mb-3">
                                     <label class="form-label" for="username">Username:</label>
-                                    <input type="text" class="form-control" id="username">
+                                    <input type="text" class="form-control" value="<?= $username ?>" name="username">
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password:</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control" value="<?= $password ?>" name="password">
                                 </div>
                                 <div class="d-grid my-3">
-                                    <button type="submit" class="btn btn-primary">Login</button>
+                                    <button type="submit" class="btn btn-primary" name="login-btn">Login</button>
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-text text-center">Don't have an acount? 
