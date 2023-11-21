@@ -11,6 +11,16 @@ $phone = '';
 $password = '';
 $confPassword = '';
 
+// func for session login
+function loginUser($user) {
+    $_SESSION['UserID'] = $user['UserID'];
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['message'] = 'You are are now logged in';
+    $_SESSION['type'] = 'alert alert-success';
+
+    header('location: ' . BASE_URL . '/index.php');
+    exit();
+}
 
 if (isset($_POST['register-btn'])) {
     $errors = validateUser($_POST);
@@ -20,6 +30,8 @@ if (isset($_POST['register-btn'])) {
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $user_id = create('Users', $_POST);
         $user = selectOne('Users', ['UserID' => $user_id]);
+        // login user
+        loginUser($user);
     } else {
         $username = $_POST['username'];
         $name = $_POST['name'];
