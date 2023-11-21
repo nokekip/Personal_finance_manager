@@ -55,6 +55,24 @@ function selectAll($table, $conditions = []) {
     }
     
 }
-$col = ['categoryID'=> 1];
-$res = selectAll('Category', $col);
-pt($res);
+
+// Selects one row
+function selectOne($table, $conditions) {
+    global $conn;
+
+    $sql = "SELECT * FROM $table";
+    $i = 0;
+    foreach ($conditions as $key => $value){
+        if($i === 0) {
+            $sql = $sql . " WHERE $key = ?";
+        } else {
+            $sql = $sql . " AND $key = ?";
+            $i++;
+        }
+    }
+    $sql = $sql . " LIMIT 1";
+
+    $stmt = executeQuery($sql, $conditions);
+    $records = $stmt->get_result()->fetch_assoc();
+    return $records;
+}
