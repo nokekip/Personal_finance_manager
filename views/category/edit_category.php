@@ -1,4 +1,6 @@
-<?php include("../../path.php"); ?>
+<?php include("../../path.php");
+include(ROOT_PATH . "/app/controllers/categories.php");
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
   <head>
@@ -43,23 +45,24 @@
           <div class="container-fluid col-md-8">
             <div class="row mb-3">
               <div class="mb-3">
-                <h5>edit Category</h5>
+                <h2>Edit Category</h2>
               </div>
             </div>
 
             <!-- ======== Income Form ======== -->
-            <form>
+            <form action="edit_category.php" method="POST">
               <fieldset>
+              <input type="hidden" value="<?= $category['categoryID'] ?>" name="id">
                 <legend>Category details</legend>
                 <div class="mb-3">
                   <label for="categoryName" class="form-label">Category name:</label>
-                  <input type="text" id="categoryName" name="categoryName" class="form-control" placeholder="Food" required>
+                  <input type="text" value="<?= $category['categoryName'] ?>" name="categoryName" class="form-control" placeholder="Food" required>
                 </div>
                 <div class="mb-3">
                   <label for="description" class="form-label">Details</label>
-                  <textarea type="text" id="description" name="description" class="form-control" rows="2"></textarea>
+                  <textarea type="text" id="description" name="description" class="form-control" rows="2"><?= $category['description'] ?></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary" name="update-category">Update</button>
               </fieldset>
             </form>
           </div>

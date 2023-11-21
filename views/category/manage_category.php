@@ -1,4 +1,6 @@
-<?php include("../../path.php"); ?>
+<?php include("../../path.php");
+include(ROOT_PATH . "/app/controllers/categories.php");
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -36,6 +38,7 @@
 
       <main class="content px-3 py-2">
         <div class="container-fluid col-md-12">
+        <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
           <div class="row mb-3">
             <div class="mb-3">
               <h5>View all Categories</h5>
@@ -63,24 +66,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Entertainment</td>
-                      <td>subscriptions to movie platform, music etc</td>
-                      <td>
-                        <a href="#" class="btn btn-success btn-sm">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Transport</td>
-                      <td>Fuel and public transportation</td>
-                      <td>
-                        <a href="#" class="btn btn-success btn-sm">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                      </td>
-                    </tr>
+                    <?php foreach($categories as $key => $category): ?>
+                      <tr>
+                        <th scope="row"><?= $key +1 ?></th>
+                        <td><?= $category['categoryName'] ?></td>
+                        <td><?= $category['description'] ?></td>
+                        <td>
+                          <a href="edit_category.php?id=<?= $category['categoryID'] ?>" class="btn btn-success btn-sm">Edit</a>
+                          <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
 
                   </tbody>
                 </table>

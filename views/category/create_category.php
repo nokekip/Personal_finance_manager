@@ -1,4 +1,6 @@
-<?php include("../../path.php"); ?>
+<?php include("../../path.php");
+include(ROOT_PATH . "/app/controllers/categories.php");
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
   <head>
@@ -52,7 +54,7 @@
             </div>
 
             <!-- ======== Income Form ======== -->
-            <form>
+            <form action="create_category.php" method="POST">
               <fieldset>
                 <legend>Category details</legend>
                 <div class="mb-3">
@@ -63,7 +65,7 @@
                   <label for="description" class="form-label">Details</label>
                   <textarea type="text" id="description" name="description" class="form-control" rows="2"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary" name="add-category">Save</button>
               </fieldset>
             </form>
           </div>
