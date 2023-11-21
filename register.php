@@ -1,4 +1,6 @@
-<?php include("path.php"); ?>
+<?php include("path.php");
+include(ROOT_PATH . "/app/controllers/users.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,36 +39,39 @@
                             <h3 class="text-center">Create an Account</h3>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="register.php" method="POST">
+
+                                <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
+
                                 <div class="mb-3">
                                     <label class="form-label" for="username">Username:</label>
-                                    <input type="text" class="form-control" id="username">
+                                    <input type="text" class="form-control" value="<?= $username ?>" name="username">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="name">Full name:</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="text" class="form-control" value="<?= $name ?>" name="name" name="fullname">
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email address:</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="Registratio Email">
+                                    <input type="email" class="form-control" value="<?= $email ?>" aria-describedby="Registratio Email" name="email">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="phone">Phone number:</label>
-                                    <input type="text" class="form-control" id="phone">
+                                    <input type="text" class="form-control" value="<?= $phone ?>" name="phone">
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password:</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control" value="<?= $password ?>" name="password">
                                 </div>
                                 <div class="mb-3">
                                     <label for="confpassword" class="form-label">Confirm Password:</label>
-                                    <input type="password" class="form-control" id="confpassword">
+                                    <input type="password" class="form-control" value="<?= $confPassword ?>" name="confpassword">
                                 </div>
                                 <div class="d-grid my-3">
-                                    <button type="submit" class="btn btn-primary">Create</button>
+                                    <button name="register-btn" type="submit" class="btn btn-primary">Create</button>
                                 </div>
                                 <div class="mb-3">
-                                    <div class="form-text text-center">Have an acount? 
+                                    <div class="form-text text-center">Have an acount?
                                         <a href="login.php" class="text-primary">Login here</a>
                                     </div>
                                 </div>
