@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
 if (isset($_POST['update-category'])) {
     $id = $_POST['id'];
     unset($_POST['update-category'], $_POST['id']);
-    $category_id = update($table, $id, $_POST);
+    $category_id = update($table, $id, $_POST, 'categoryID');
     $_SESSION['message'] = 'Category updated succesfully';
     $_SESSION['type'] = 'alert alert-success';
     header('Location: ' . BASE_URL . '/views/category/manage_category.php');
