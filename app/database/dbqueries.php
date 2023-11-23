@@ -100,7 +100,7 @@ function create($table, $data) {
 }
 
 // update table
-function update($table, $id, $data)
+function update($table, $id, $data, $idColumn)
 {
     global $conn;
 
@@ -116,7 +116,7 @@ function update($table, $id, $data)
         $i++;
     }
 
-    $sql = $sql . " WHERE id=?";
+    $sql = $sql . " WHERE $idColumn=?";
     $data['id'] = $id;
 
     $stmt = executeQuery($sql, $data);
