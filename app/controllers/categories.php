@@ -1,5 +1,6 @@
 <?php
 include(ROOT_PATH . "/app/database/dbqueries.php");
+include(ROOT_PATH . "/app/helpers/middleware.php");
 include(ROOT_PATH . "/app/helpers/validateCategory.php");
 
 
