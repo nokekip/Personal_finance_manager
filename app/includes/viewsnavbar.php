@@ -10,7 +10,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a href="#" class="dropdown-item">Profile</a>
-                    <a href="#" class="dropdown-item">Logout</a>
+                    <a href="<?= BASE_URL . '/logout.php' ?>" class="dropdown-item">Logout</a>
                 </div>
             </li>
         </ul>
