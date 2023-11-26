@@ -12,6 +12,7 @@ $amount = '';
 $date = '';
 $details = '';
 $user_id = $_SESSION['UserID'];
+$all_income = selectAll($table, ['UserID' => $user_id]);
 
 if (isset($_POST['income-btn'])) {
     $errors = validateIncome($_POST);

@@ -69,28 +69,19 @@ usersOnly();
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>12/08/2023</td>
-                      <td>Food</td>
-                      <td>$20</td>
-                      <td>groceries</td>
-                      <td>
-                        <a href="#" class="btn btn-success btn-sm">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>20/08/2023</td>
-                      <td>Entertainment</td>
-                      <td>$50</td>
-                      <td>Spotify</td>
-                      <td>
-                        <a href="#" class="btn btn-success btn-sm">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                      </td>
-                    </tr>
+                    <?php foreach ($all_income as $key => $income) : ?>
+                      <tr>
+                        <th scope="row"><?= $key +1 ?></th>
+                        <td><?= $income['date'] ?></td>
+                        <td><?= $income['source'] ?></td>
+                        <td>$<?= $income['amount'] ?></td>
+                        <td><?= $income['details'] ?></td>
+                        <td>
+                          <a href="#" class="btn btn-success btn-sm">Edit</a>
+                          <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
                   </tbody>
                 </table>
               </div>
