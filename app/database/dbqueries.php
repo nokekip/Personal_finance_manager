@@ -126,11 +126,11 @@ function update($table, $id, $data, $idColumn)
 
 // delete function
 
-function delete($table, $id)
+function delete($table, $id, $idColumn)
 {
     global $conn;
 
-    $sql = "DELETE FROM $table WHERE id=?";
+    $sql = "DELETE FROM $table WHERE $idColumn=?";
 
     $stmt = executeQuery($sql, ['id' => $id]);
     return $stmt->affected_rows;

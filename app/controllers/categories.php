@@ -41,10 +41,28 @@ if (isset($_GET['id'])) {
 
 // update category
 if (isset($_POST['update-category'])) {
-    $id = $_POST['id'];
-    unset($_POST['update-category'], $_POST['id']);
-    $category_id = update($table, $id, $_POST, 'categoryID');
-    $_SESSION['message'] = 'Category updated succesfully';
+    $errors = validateCategory($_POST);
+
+    if (count($errors) === 0) {
+        $id = $_POST['id'];
+        unset($_POST['update-category'], $_POST['id']);
+        $category_id = update($table, $id, $_POST, 'categoryID');
+        $_SESSION['message'] = 'Category updated succesfully';
+        $_SESSION['type'] = 'alert alert-success';
+        header('Location: ' . BASE_URL . '/views/category/manage_category.php');
+        exit();
+    } else {
+        $id = $_POST['id'];
+        $name = $_POST['categoryName'];
+        $description = $_POST['description'];
+    }
+}
+
+// delete category
+if (isset($_GET['del_id'])) {
+    $id = $_GET['del_id'];
+    $count = delete($table, $id, 'categoryID');
+    $_SESSION['message'] = "Category deleted";
     $_SESSION['type'] = 'alert alert-success';
     header('Location: ' . BASE_URL . '/views/category/manage_category.php');
     exit();

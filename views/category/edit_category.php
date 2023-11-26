@@ -57,11 +57,11 @@ include(ROOT_PATH . "/app/controllers/categories.php");
                 <legend>Category details</legend>
                 <div class="mb-3">
                   <label for="categoryName" class="form-label">Category name:</label>
-                  <input type="text" value="<?= $category['categoryName'] ?>" name="categoryName" class="form-control" placeholder="Food" required>
+                  <input type="text" value="<?= $name ?>" name="categoryName" class="form-control" placeholder="Food" required>
                 </div>
                 <div class="mb-3">
                   <label for="description" class="form-label">Details</label>
-                  <textarea type="text" id="description" name="description" class="form-control" rows="2"><?= $category['description'] ?></textarea>
+                  <textarea type="text" id="description" name="description" class="form-control" rows="2"><?= $description ?></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary" name="update-category">Update</button>
               </fieldset>

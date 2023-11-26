@@ -73,7 +73,7 @@ include(ROOT_PATH . "/app/controllers/categories.php");
                         <td><?= $category['description'] ?></td>
                         <td>
                           <a href="edit_category.php?id=<?= $category['categoryID'] ?>" class="btn btn-success btn-sm">Edit</a>
-                          <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                          <a href="manage_category.php?del_id=<?= $category['categoryID'] ?>" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                       </tr>
                     <?php endforeach; ?>
