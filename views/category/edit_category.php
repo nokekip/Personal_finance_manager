@@ -1,5 +1,6 @@
 <?php include("../../path.php");
 include(ROOT_PATH . "/app/controllers/categories.php");
+usersOnly();
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">

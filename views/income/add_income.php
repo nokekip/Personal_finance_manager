@@ -1,4 +1,7 @@
-<?php include("../../path.php"); ?>
+<?php include("../../path.php");
+include(ROOT_PATH . "/app/controllers/income.php");
+usersOnly();
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
   <head>
@@ -46,32 +49,33 @@
                 <h5>Add Income</h5>
               </div>
               <div class="d-inline-flex gap-1">
-                <a href="#" class="btn btn-primary" role="button">Add Income</a>
-                <a href="#" class="btn btn-primary" role="button">Manage Income</a>
+                <a href="<?= BASE_URL . '/views/income/add_income.php' ?>" class="btn btn-primary" role="button">Add Income</a>
+                <a href="<?= BASE_URL . '/views/income/manage_income.php' ?>" class="btn btn-primary" role="button">Manage Income</a>
               </div>              
             </div>
 
             <!-- ======== Income Form ======== -->
-            <form>
+            <form action="add_income.php" method="POST">
+            <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
               <fieldset>
                 <legend>Income details</legend>
                 <div class="mb-3">
                   <label for="source" class="form-label">Source:</label>
-                  <input type="text" id="source" name="source" class="form-control" placeholder="Salary" required>
+                  <input type="text" value="<?= $source ?>" name="source" class="form-control" placeholder="Salary" required>
                 </div>
                 <div class="mb-3">
                   <label for="amount" class="form-label">Amount</label>
-                  <input type="number" id="amount" name="amount" class="form-control" placeholder="500" required>
+                  <input type="number" value="<?= $amount ?>" name="amount" class="form-control" placeholder="500" required>
                 </div>
                 <div class="mb-3">
                   <label for="date" class="form-label">Date</label>
-                  <input type="date" id="date" name="date" class="form-control" required>
+                  <input type="date" value="<?= $date ?>" name="date" class="form-control" required>
                 </div>
                 <div class="mb-3">
                   <label for="details" class="form-label">Details</label>
-                  <textarea type="text" id="details" name="details" class="form-control" rows="2"></textarea>
+                  <textarea type="text" id="details" name="details" class="form-control" rows="2"><?= $details ?></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="income-btn">Submit</button>
               </fieldset>
             </form>
           </div>
