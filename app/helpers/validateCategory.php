@@ -4,7 +4,7 @@ function validateCategory($category)
 {
     $errors = array();
 
-    if (empty($category['username'])) {
+    if (empty($category['categoryName'])) {
         array_push($errors, 'Category name is required');
     }
   

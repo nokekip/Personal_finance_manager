@@ -1,8 +1,11 @@
 <?php
 include(ROOT_PATH . "/app/database/dbqueries.php");
+include(ROOT_PATH . "/app/helpers/validateCategory.php");
+
 
 $table = 'Category';
 
+$errors = array();
 $id = '';
 $name = '';
 $description = '';
@@ -11,13 +14,20 @@ $categories = selectAll($table);
 
 // add category
 if (isset($_POST['add-category'])) {
-    unset($_POST['add-category']);
+    $errors = validateCategory($_POST);
 
-    $category_id = create('Category', $_POST);
-    $_SESSION['message'] = 'Category created succesfully';
-    $_SESSION['type'] = 'alert alert-success';
-    header('Location: ' . BASE_URL . '/views/category/manage_category.php');
-    exit();
+    if (count($errors) == 0) {
+        unset($_POST['add-category']);
+
+        $category_id = create('Category', $_POST);
+        $_SESSION['message'] = 'Category created succesfully';
+        $_SESSION['type'] = 'alert alert-success';
+        header('Location: ' . BASE_URL . '/views/category/manage_category.php');
+        exit();
+    } else {
+        $name = $_POST['categoryName'];
+        $description = $_POST['description'];
+    }
 }
 
 // fetch category by id

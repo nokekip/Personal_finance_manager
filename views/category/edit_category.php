@@ -51,6 +51,7 @@ include(ROOT_PATH . "/app/controllers/categories.php");
 
             <!-- ======== Income Form ======== -->
             <form action="edit_category.php" method="POST">
+            <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
               <fieldset>
               <input type="hidden" value="<?= $category['categoryID'] ?>" name="id">
                 <legend>Category details</legend>

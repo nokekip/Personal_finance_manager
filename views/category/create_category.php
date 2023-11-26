@@ -48,22 +48,23 @@ include(ROOT_PATH . "/app/controllers/categories.php");
                 <h5>Add Category</h5>
               </div>
               <div class="d-inline-flex gap-1">
-                <a href="#" class="btn btn-primary" role="button">Add Category</a>
-                <a href="#" class="btn btn-primary" role="button">Manage Category</a>
+                <a href="<?= BASE_URL . '/views/category/create_category.php' ?>" class="btn btn-primary" role="button">Add Category</a>
+                <a href="<?= BASE_URL . '/views/category/manage_category.php' ?>" class="btn btn-primary" role="button">Manage Category</a>
               </div>              
             </div>
 
             <!-- ======== Income Form ======== -->
             <form action="create_category.php" method="POST">
+            <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
               <fieldset>
                 <legend>Category details</legend>
                 <div class="mb-3">
                   <label for="categoryName" class="form-label">Category name:</label>
-                  <input type="text" id="categoryName" name="categoryName" class="form-control" placeholder="Food" required>
+                  <input type="text" value="<?= $name ?>" name="categoryName" class="form-control" placeholder="eg. Food" required>
                 </div>
                 <div class="mb-3">
                   <label for="description" class="form-label">Details</label>
-                  <textarea type="text" id="description" name="description" class="form-control" rows="2"></textarea>
+                  <textarea type="text" id="description" name="description" class="form-control" rows="2"><?= $description ?></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary" name="add-category">Save</button>
               </fieldset>

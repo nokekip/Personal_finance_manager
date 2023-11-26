@@ -44,8 +44,8 @@ include(ROOT_PATH . "/app/controllers/categories.php");
               <h5>View all Categories</h5>
             </div>
             <div class="d-inline-flex gap-1">
-              <a href="#" class="btn btn-primary" role="button">Add Category</a>
-              <a href="#" class="btn btn-primary" role="button">Manage Category</a>
+              <a href="<?= BASE_URL . '/views/category/create_category.php' ?>" class="btn btn-primary" role="button">Add Category</a>
+              <a href="<?= BASE_URL . '/views/category/manage_category.php' ?>" class="btn btn-primary" role="button">Manage Category</a>
             </div>
           </div>
 
