@@ -1,4 +1,5 @@
 <?php include("../../path.php");
+include(ROOT_PATH . "/app/controllers/income.php");
 usersOnly();
 ?>
 <!DOCTYPE html>
@@ -38,13 +39,14 @@ usersOnly();
 
       <main class="content px-3 py-2">
         <div class="container-fluid coExpensel-md-12">
+        <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
           <div class="row mb-3">
             <div class="mb-3">
               <h5>All your Expenses</h5>
             </div>
             <div class="d-inline-flex gap-1">
-              <a href="#" class="btn btn-primary" role="button">Add Income</a>
-              <a href="#" class="btn btn-primary" role="button">Manage Income</a>
+              <a href="<?= BASE_URL . '/views/income/add_income.php' ?>" class="btn btn-primary" role="button">Add Income</a>
+              <a href="<?= BASE_URL . '/views/income/manage_income.php' ?>" class="btn btn-primary" role="button">Manage Income</a>
             </div>
           </div>
 

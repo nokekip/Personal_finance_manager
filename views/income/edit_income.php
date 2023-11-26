@@ -1,4 +1,5 @@
 <?php include("../../path.php"); 
+include(ROOT_PATH . "/app/controllers/income.php");
 usersOnly();
 ?>
 <!DOCTYPE html>
