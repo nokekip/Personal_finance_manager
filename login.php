@@ -32,7 +32,7 @@ include(ROOT_PATH . "/app/controllers/users.php");
 
             <main class="content px-3 py-2">
                 <div class="container-fluid col-md-6 mt-5">
-
+                <?php include(ROOT_PATH . "/app/includes/messages.php") ?>
                     <!-- ======== Login Form ======== -->
                     <div class="card">
                         <div class="card-header">
