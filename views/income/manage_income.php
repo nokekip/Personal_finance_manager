@@ -78,7 +78,7 @@ usersOnly();
                         <td><?= $income['details'] ?></td>
                         <td>
                           <a href="edit_income.php?id=<?= $income['IncomeID'] ?>" class="btn btn-success btn-sm">Edit</a>
-                          <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                          <a href="manage_income.php?del_income=<?= $income['IncomeID'] ?>" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                       </tr>
                     <?php endforeach; ?>

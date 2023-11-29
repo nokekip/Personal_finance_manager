@@ -64,3 +64,13 @@ if (isset($_POST['update-income-btn'])) {
         $details = $_POST['details'];
     }
 }
+
+// delete income
+if (isset($_GET['del_income'])) {
+    $id = $_GET['del_income'];
+    $count = delete($table, $id, 'IncomeID');
+    $_SESSION['message'] = "Income deleted succesfully";
+    $_SESSION['type'] = 'alert alert-success';
+    header('Location: ' . BASE_URL . '/views/income/manage_income.php');
+    exit();
+}
