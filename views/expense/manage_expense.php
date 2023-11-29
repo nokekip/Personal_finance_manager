@@ -44,8 +44,8 @@ usersOnly();
               <h5>All your Expenses</h5>
             </div>
             <div class="d-inline-flex gap-1">
-              <a href="#" class="btn btn-primary" role="button">Add Expense</a>
-              <a href="#" class="btn btn-primary" role="button">Manage Expense</a>
+              <a href="<?= BASE_URL . '/views/expense/add_expense.php' ?>" class="btn btn-primary" role="button">Add Expense</a>
+              <a href="<?= BASE_URL . '/views/expense/manage_expense.php' ?>" class="btn btn-primary" role="button">Manage Expense</a>
             </div>
           </div>
 
