@@ -51,26 +51,27 @@ usersOnly();
             </div>
 
             <!-- ======== Income Form ======== -->
-            <form>
+            <form action="edit_income.php" method="POST">
               <fieldset>
+              <input type="hidden" value="<?= $income['IncomeID'] ?>" name="id">
                 <legend>Income details</legend>
                 <div class="mb-3">
                   <label for="source" class="form-label">Source:</label>
-                  <input type="text" id="source" name="source" class="form-control" placeholder="Salary" required>
+                  <input type="text" value="<?= $source ?>" name="source" class="form-control" placeholder="Salary" required>
                 </div>
                 <div class="mb-3">
                   <label for="amount" class="form-label">Amount</label>
-                  <input type="number" id="amount" name="amount" class="form-control" placeholder="500" required>
+                  <input type="number" value="<?= $amount ?>" name="amount" class="form-control" placeholder="500" required>
                 </div>
                 <div class="mb-3">
                   <label for="date" class="form-label">Date</label>
-                  <input type="date" id="date" name="date" class="form-control" required>
+                  <input type="date" value="<?= $date ?>" name="date" class="form-control" required>
                 </div>
                 <div class="mb-3">
                   <label for="details" class="form-label">Details</label>
-                  <textarea type="text" id="details" name="details" class="form-control" rows="2"></textarea>
+                  <textarea type="text" id="details" name="details" class="form-control" rows="2"><?= $details ?>"</textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary" name="update-income-btn">Update</button>
               </fieldset>
             </form>
           </div>

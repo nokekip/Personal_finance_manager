@@ -77,7 +77,7 @@ usersOnly();
                         <td>$<?= $income['amount'] ?></td>
                         <td><?= $income['details'] ?></td>
                         <td>
-                          <a href="#" class="btn btn-success btn-sm">Edit</a>
+                          <a href="edit_income.php?id=<?= $income['IncomeID'] ?>" class="btn btn-success btn-sm">Edit</a>
                           <a href="#" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                       </tr>
