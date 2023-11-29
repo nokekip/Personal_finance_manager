@@ -55,32 +55,37 @@ usersOnly();
             </div>
 
             <!-- ======== Income Form ======== -->
-            <form>
+            <form action="add_expense.php" method="POST">
+            <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
               <fieldset>
                 <legend>Expense details</legend>
                 <div class="mb-3">
                   <label for="category" class="form-label">Categoty:</label>
-                  <select id="category" class="form-select" aria-label="
-                  select expense category" required>
-                    <option selected disabled>Select category</option>
-                    <option value="1">Food</option>
-                    <option value="2">Transport</option>
-                    <option value="3">Entertainment</option>
+                  <select name="categoryID" class="form-select" aria-label="
+                  select expense category">
+                    <option value="">Select category</option>
+                    <?php foreach ($categories as $key => $category): ?>
+                      <?php if (!empty($category_id) && $category_id == $topic['categoryID']): ?>
+                        <option selected value="<?php echo $category['categoryID']; ?>"><?php echo $category['categoryName']; ?></option>
+                      <?php else: ?>
+                        <option value="<?=$category["categoryID"]?>"><?=$category["categoryName"]?></option>
+                      <?php endif; ?>
+                    <?php endforeach; ?>
                   </select>
                 </div>
                 <div class="mb-3">
                   <label for="particulars" class="form-label">Particulars:</label>
-                  <input type="text" id="particulars" name="particulars" class="form-control" placeholder="eg. groceries" required>
+                  <input type="text" value="<?= $particulars ?>" name="particulars" class="form-control" placeholder="eg. groceries" required>
                 </div>
                 <div class="mb-3">
                   <label for="amount" class="form-label">Amount:</label>
-                  <input type="number" id="amount" name="amount" class="form-control" placeholder="500" required>
+                  <input type="number" value="<?= $amount ?>" name="amount" class="form-control" placeholder="500" required>
                 </div>
                 <div class="mb-3">
                   <label for="date" class="form-label">Date:</label>
-                  <input type="date" id="date" name="date" class="form-control" required>
+                  <input type="date" value="<?= $date ?>" name="date" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="add-expense-btn">Submit</button>
               </fieldset>
             </form>
           </div>

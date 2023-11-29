@@ -50,8 +50,9 @@ usersOnly();
               </div>
             </div>
 
-            <!-- ======== Income Form ======== -->
-            <form>
+            <!-- ======== Expense Form ======== -->
+            <form action="edit_expense.php">
+            <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
               <fieldset>
                 <legend>Expense details</legend>
                 <div class="mb-3">

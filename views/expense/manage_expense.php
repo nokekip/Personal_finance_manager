@@ -39,6 +39,7 @@ usersOnly();
 
       <main class="content px-3 py-2">
         <div class="container-fluid coExpensel-md-12">
+        <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
           <div class="row mb-3">
             <div class="mb-3">
               <h5>All your Expenses</h5>
@@ -69,23 +70,14 @@ usersOnly();
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>12/08/2023</td>
-                      <td>Food</td>
-                      <td>$20</td>
-                      <td>groceries</td>
-                      <td>
-                        <a href="#" class="btn btn-success btn-sm">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>20/08/2023</td>
-                      <td>Entertainment</td>
-                      <td>$50</td>
-                      <td>Spotify</td>
-                      <td>
+                      <?php foreach ($expenses as $key => $expense): ?>
+                        <th scope="row"><?= $key + 1 ?></th>
+                        <td><?= $expense['date'] ?></td>
+                        <td><?= $expense['categoryName'] ?></td>
+                        <td><?= $expense['amount'] ?></td>
+                        <td><?= $expense['particulars'] ?></td>
+                        <td>
+                      <?php endforeach; ?>
                         <a href="#" class="btn btn-success btn-sm">Edit</a>
                         <a href="#" class="btn btn-danger btn-sm">Delete</a>
                       </td>
