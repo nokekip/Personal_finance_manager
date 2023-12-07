@@ -35,9 +35,3 @@ if (isset($_POST['add-expense-btn'])) {
         $date = $_POST['date'];
     }
 }
-
-// fetch category name from categoryID
-function getCategoryName($categoryID) {
-    $category = selectOne('Category', ['categoryID' => $categoryID]);
-    return $category['categoryName'];
-}

@@ -135,3 +135,9 @@ function delete($table, $id, $idColumn)
     $stmt = executeQuery($sql, ['id' => $id]);
     return $stmt->affected_rows;
 }
+
+// fetch category name from categoryID
+function getCategoryName($categoryID) {
+    $category = selectOne('Category', ['categoryID' => $categoryID]);
+    return $category['categoryName'];
+}
