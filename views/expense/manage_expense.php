@@ -73,7 +73,7 @@ usersOnly();
                       <tr>
                         <th scope="row"><?= $key + 1 ?></th>
                         <td><?= $expense['date'] ?></td>
-                        <td><?= $expense['categoryName'] ?></td>
+                        <td><?= getCategoryName($expense['categoryID']) ?></td>
                         <td><?= $expense['amount'] ?></td>
                         <td><?= $expense['particulars'] ?></td>
                         <td>
