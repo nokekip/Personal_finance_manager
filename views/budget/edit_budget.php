@@ -1,4 +1,5 @@
 <?php include("../../path.php");
+include(ROOT_PATH . "/app/controllers/budget.php");
 usersOnly();
 ?>
 <!DOCTYPE html>
@@ -48,29 +49,35 @@ usersOnly();
               </div>              
             </div>
 
-            <!-- ======== Income Form ======== -->
-            <form>
+            <!-- ======== Budget Form ======== -->
+            <form action="edit_budget.php" method="POST">
+            <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
               <fieldset>
+                <input type="hidden" value="<?= $budget['budgetID'] ?>" name="id">
                 <legend>Budget Allocation</legend>
                 <div class="mb-3">
                   <label for="category" class="form-label">Categoty:</label>
-                  <select id="category" class="form-select" aria-label="
-                  select budget category" required>
-                    <option selected disabled>Select category</option>
-                    <option value="1">Food</option>
-                    <option value="2">Transport</option>
-                    <option value="3">Entertainment</option>
+                  <select name="categoryID" class="form-select" aria-label="
+                  select expense category">
+                    <option value="">Select category</option>
+                    <?php foreach ($categories as $key => $category): ?>
+                      <?php if (!empty($category_id) && $category_id == $category['categoryID']): ?>
+                        <option selected value="<?php echo $category['categoryID']; ?>"><?php echo $category['categoryName']; ?></option>
+                      <?php else: ?>
+                        <option value="<?=$category["categoryID"]?>"><?=$category["categoryName"]?></option>
+                      <?php endif; ?>
+                    <?php endforeach; ?>
                   </select>
                 </div>
                 <div class="mb-3">
                   <label for="amount" class="form-label">Amount:</label>
-                  <input type="number" id="amount" name="amount" class="form-control" placeholder="500" required>
+                  <input type="number" value="<?= $amount ?>" name="amount" class="form-control" placeholder="500" required>
                 </div>
                 <div class="mb-3">
-                  <label for="budgetDate" class="form-label">Allocation Date:</label>
-                  <input type="date" id="budgetDate" name="budgetDate" class="form-control" required>
+                  <label for="allocationDate" class="form-label">Allocation Date:</label>
+                  <input type="date" value="<?= $date ?>" name="allocationDate" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Save Budget</button>
+                <button type="submit" class="btn btn-primary" name="update-budget-btn" >Update</button>
               </fieldset>
             </form>
           </div>
