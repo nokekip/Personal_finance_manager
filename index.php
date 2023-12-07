@@ -3,7 +3,11 @@ include(ROOT_PATH . "/app/database/dbqueries.php");
 include(ROOT_PATH . "/app/helpers/middleware.php");
 usersOnly();
 
+$user_id = $_SESSION['UserID'];
 $expenses = selectAll('Expenditure', ['UserID' => $_SESSION['UserID']]);
+$income = calcTotal('Income', $user_id);
+$total_expen = calcTotal('Expenditure', $user_id);
+$total_balance = $income - $total_expen;
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +69,7 @@ $expenses = selectAll('Expenditure', ['UserID' => $_SESSION['UserID']]);
                           ></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>$278</h3>
+                          <h3>$<?= $income ?></h3>
                           <span>Total Income</span>
                         </div>
                       </div>
@@ -82,7 +86,7 @@ $expenses = selectAll('Expenditure', ['UserID' => $_SESSION['UserID']]);
                           <i class="fa-solid fa-money-bill fs-1 me-3"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>$156</h3>
+                          <h3>$<?= $total_expen ?></h3>
                           <span>Total Expense</span>
                         </div>
                       </div>
@@ -99,7 +103,7 @@ $expenses = selectAll('Expenditure', ['UserID' => $_SESSION['UserID']]);
                           <i class="fa-solid fa-piggy-bank fs-1 me-3"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>$534</h3>
+                          <h3>$<?= calcTotal('Budget', $user_id) ?></h3>
                           <span>Total budget</span>
                         </div>
                       </div>
@@ -116,7 +120,7 @@ $expenses = selectAll('Expenditure', ['UserID' => $_SESSION['UserID']]);
                           <i class="fa-solid fa-scale-balanced fs-1 me-3"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>$423</h3>
+                          <h3>$<?= $total_balance ?></h3>
                           <span>Total Balance</span>
                         </div>
                       </div>
