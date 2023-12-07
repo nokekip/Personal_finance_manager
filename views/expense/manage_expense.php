@@ -69,19 +69,19 @@ usersOnly();
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <?php foreach ($expenses as $key => $expense): ?>
+                    <?php foreach ($expenses as $key => $expense): ?>
+                      <tr>
                         <th scope="row"><?= $key + 1 ?></th>
                         <td><?= $expense['date'] ?></td>
                         <td><?= $expense['categoryName'] ?></td>
                         <td><?= $expense['amount'] ?></td>
                         <td><?= $expense['particulars'] ?></td>
                         <td>
-                      <?php endforeach; ?>
-                        <a href="#" class="btn btn-success btn-sm">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                      </td>
-                    </tr>
+                          <a href="#" class="btn btn-success btn-sm">Edit</a>
+                          <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
                   </tbody>
                 </table>
               </div>
