@@ -76,7 +76,7 @@ usersOnly();
                                                 <td><?= $budget['amount'] ?></td>
                                                 <td>
                                                     <a href="edit_budget.php?id=<?= $budget['budgetID'] ?>" class="btn btn-success btn-sm">Edit</a>
-                                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                                    <a href="manage_budget.php?del=<?= $budget['budgetID'] ?>" class="btn btn-danger btn-sm">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

@@ -57,3 +57,13 @@ if (isset($_POST['update-budget-btn'])) {
         exit();
     }
 }
+
+// delete budget
+if (isset($_GET['del'])) {
+    $id = $_GET['del'];
+    $count = delete($table, $id, 'budgetID');
+    $_SESSION['message'] = 'Budget was deleted succesfully';
+    $_SESSION['type'] = 'alert alert-success';
+    header('Location: ' . BASE_URL . '/views/budget/manage_budget.php');
+    exit();
+}
