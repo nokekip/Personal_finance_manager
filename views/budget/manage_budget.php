@@ -1,4 +1,5 @@
 <?php include("../../path.php");
+include(ROOT_PATH . "/app/controllers/budget.php");
 usersOnly();
 ?>
 <!DOCTYPE html>
@@ -38,13 +39,14 @@ usersOnly();
 
             <main class="content px-3 py-2">
                 <div class="container-fluid col-md-12">
+                <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
                     <div class="row mb-3">
                         <div class="mb-3">
                             <h5>All Budget Transactions</h5>
                         </div>
                         <div class="d-inline-flex gap-1">
-                            <a href="#" class="btn btn-primary" role="button">Add Budget</a>
-                            <a href="#" class="btn btn-primary" role="button">Manage Budget</a>
+                            <a href="<?= BASE_URL . '/views/budget/add_budget.php' ?>" class="btn btn-primary" role="button">Add Budget</a>
+                            <a href="<?= BASE_URL . '/views/budget/manage_budget.php' ?>" class="btn btn-primary" role="button">Manage Budget</a>
                         </div>
                     </div>
 
@@ -66,47 +68,18 @@ usersOnly();
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>12/08/2023</td>
-                                            <td>Entertainment</td>
-                                            <td>$20</td>
-                                            <td>
-                                                <a href="#" class="btn btn-success btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>15/08/2023</td>
-                                            <td>Others</td>
-                                            <td>$180</td>
-                                            <td>
-                                                <a href="#" class="btn btn-success btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>20/08/2023</td>
-                                            <td>Entertainment</td>
-                                            <td>$50</td>
-                                            <td>
-                                                <a href="#" class="btn btn-success btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>5/09/2023</td>
-                                            <td>Rent</td>
-                                            <td>$200</td>
-                                            <td>
-                                                <a href="#" class="btn btn-success btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                            </td>
-                                        </tr>
-                                        
+                                        <?php foreach ($budgets as $key => $budget) : ?>
+                                            <tr>
+                                                <th scope="row"><?= $key +1 ?></th>
+                                                <td><?= $budget['allocationDate'] ?></td>
+                                                <td><?= getCategoryName($budget['categoryID']) ?></td>
+                                                <td><?= $budget['amount'] ?></td>
+                                                <td>
+                                                    <a href="#" class="btn btn-success btn-sm">Edit</a>
+                                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

@@ -11,6 +11,7 @@ $date = '';
 $category_id = '';
 $user_id = $_SESSION['UserID'];
 $categories = selectAll('Category');
+$budgets = selectAll($table, ['UserID' => $user_id]);
 
 // add budget
 if (isset($_POST['add-budget-btn'])) {
