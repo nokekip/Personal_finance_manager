@@ -1,4 +1,5 @@
 <?php include("../../path.php");
+include(ROOT_PATH . "/app/controllers/budget.php");
 usersOnly();
 ?>
 <!DOCTYPE html>
@@ -48,34 +49,39 @@ usersOnly();
                 <h5>Create Budget</h5>
               </div>
               <div class="d-inline-flex gap-1">
-                <a href="#" class="btn btn-primary" role="button">Add Budget</a>
-                <a href="#" class="btn btn-primary" role="button">Manage Budget</a>
+                <a href="<?= BASE_URL . '/views/budget/add_budget.php' ?>" class="btn btn-primary" role="button">Add Budget</a>
+                <a href="<?= BASE_URL . '/views/budget/manage_budget.php' ?>" class="btn btn-primary" role="button">Manage Budget</a>
               </div>              
             </div>
 
-            <!-- ======== Income Form ======== -->
-            <form>
+            <!-- ======== Budget Form ======== -->
+            <form action="add_budget.php" method="POST">
+            <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
               <fieldset>
                 <legend>Budget Allocation</legend>
                 <div class="mb-3">
                   <label for="category" class="form-label">Categoty:</label>
-                  <select id="category" class="form-select" aria-label="
-                  select budget category" required>
-                    <option selected disabled>Select category</option>
-                    <option value="1">Food</option>
-                    <option value="2">Transport</option>
-                    <option value="3">Entertainment</option>
+                  <select name="categoryID" class="form-select" aria-label="
+                  select expense category">
+                    <option value="">Select category</option>
+                    <?php foreach ($categories as $key => $category): ?>
+                      <?php if (!empty($category_id) && $category_id == $category['categoryID']): ?>
+                        <option selected value="<?php echo $category['categoryID']; ?>"><?php echo $category['categoryName']; ?></option>
+                      <?php else: ?>
+                        <option value="<?=$category["categoryID"]?>"><?=$category["categoryName"]?></option>
+                      <?php endif; ?>
+                    <?php endforeach; ?>
                   </select>
                 </div>
                 <div class="mb-3">
                   <label for="amount" class="form-label">Amount:</label>
-                  <input type="number" id="amount" name="amount" class="form-control" placeholder="500" required>
+                  <input type="number" value="<?= $amount ?>" name="amount" class="form-control" placeholder="500" required>
                 </div>
                 <div class="mb-3">
-                  <label for="budgetDate" class="form-label">Allocation Date:</label>
-                  <input type="date" id="budgetDate" name="budgetDate" class="form-control" required>
+                  <label for="allocationDate" class="form-label">Allocation Date:</label>
+                  <input type="date" value="<?= $date ?>" name="allocationDate" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Save Budget</button>
+                <button type="submit" class="btn btn-primary" name="add-budget-btn">Save Budget</button>
               </fieldset>
             </form>
           </div>
