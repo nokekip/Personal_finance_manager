@@ -28,5 +28,10 @@ if (isset($_POST['add-expense-btn'])) {
         $_SESSION['type'] = 'alert alert-success';
         header('Location: ' . BASE_URL . '/views/expense/manage_expense.php');
         exit();
+    } else {
+        $category_id = $_POST['categoryID'];
+        $particulars = $_POST['particulars'];
+        $amount = $_POST['amount'];
+        $date = $_POST['date'];
     }
 }
