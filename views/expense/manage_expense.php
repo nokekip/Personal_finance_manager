@@ -77,7 +77,7 @@ usersOnly();
                         <td><?= $expense['amount'] ?></td>
                         <td><?= $expense['particulars'] ?></td>
                         <td>
-                          <a href="#" class="btn btn-success btn-sm">Edit</a>
+                          <a href="edit_expense.php?id=<?= $expense['expenseID'] ?>" class="btn btn-success btn-sm">Edit</a>
                           <a href="#" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                       </tr>

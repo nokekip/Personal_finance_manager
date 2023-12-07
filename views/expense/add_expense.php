@@ -65,7 +65,7 @@ usersOnly();
                   select expense category">
                     <option value="">Select category</option>
                     <?php foreach ($categories as $key => $category): ?>
-                      <?php if (!empty($category_id) && $category_id == $topic['categoryID']): ?>
+                      <?php if (!empty($category_id) && $category_id == $category['categoryID']): ?>
                         <option selected value="<?php echo $category['categoryID']; ?>"><?php echo $category['categoryName']; ?></option>
                       <?php else: ?>
                         <option value="<?=$category["categoryID"]?>"><?=$category["categoryName"]?></option>

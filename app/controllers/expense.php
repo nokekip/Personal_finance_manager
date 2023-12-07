@@ -19,7 +19,7 @@ $categories = selectAll('Category');
 if (isset($_POST['add-expense-btn'])) {
     $errors = validateExpense($_POST);
 
-    if (count($errors) ===0 ){
+    if (count($errors) === 0) {
         unset($_POST['add-expense-btn']);
 
         $_POST['UserID'] = $user_id;
@@ -33,5 +33,30 @@ if (isset($_POST['add-expense-btn'])) {
         $particulars = $_POST['particulars'];
         $amount = $_POST['amount'];
         $date = $_POST['date'];
+    }
+}
+
+// Fetch expense by id
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $expense = selectOne($table, ['expenseID' => $id]);
+    $id = $expense['expenseID'];
+    $category_id = $expense['categoryID'];
+    $particulars = $expense['particulars'];
+    $amount = $expense['amount'];
+    $date = $expense['date'];
+}
+
+// update expense
+if (isset($_POST['update-expense-btn'])) {
+    $errors = validateExpense($_POST);
+
+    if (count($errors) === 0) {
+        $id = $_POST['id'];
+        unset($_POST['update-expense-btn'], $_POST['id']);
+        $expense_id = update($table, $id, $_POST, 'expenseID');
+        $_SESSION['message'] = 'Expense was updated successfully';
+        $_SESSION['type'] = 'alert alert-success';
+        header("location:" . BASE_URL . "/views/expense/manage_expense.php");
     }
 }
