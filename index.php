@@ -1,5 +1,7 @@
 <?php include("path.php");
 include(ROOT_PATH . "/app/database/dbqueries.php");
+include(ROOT_PATH . "/app/helpers/middleware.php");
+usersOnly();
 ?>
 
 <!DOCTYPE html>
