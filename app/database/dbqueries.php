@@ -141,3 +141,13 @@ function getCategoryName($categoryID) {
     $category = selectOne('Category', ['categoryID' => $categoryID]);
     return $category['categoryName'];
 }
+
+// calculate total
+function calcTotal($table, $id) {
+    global $conn;
+
+    $sql = "SELECT SUM(amount) AS total_amount FROM $table WHERE UserID=?;";
+    $result = executeQuery($sql, ['User' => $id]);
+    $total = $result->get_result()->fetch_assoc();
+    return $total['total_amount'];
+}
