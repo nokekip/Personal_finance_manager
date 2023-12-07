@@ -60,3 +60,13 @@ if (isset($_POST['update-expense-btn'])) {
         header("location:" . BASE_URL . "/views/expense/manage_expense.php");
     }
 }
+
+// delete expense
+if (isset($_GET['del'])) {
+    $id = $_GET['del'];
+    $count = delete($table, $id, 'expenseID');
+    $_SESSION['message'] = 'Expense was deleted successfully';
+    $_SESSION['type'] = 'alert alert-success';
+    header("location:" . BASE_URL . "/views/expense/manage_expense.php");
+    exit();
+}
