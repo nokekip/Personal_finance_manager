@@ -2,6 +2,8 @@
 include(ROOT_PATH . "/app/database/dbqueries.php");
 include(ROOT_PATH . "/app/helpers/middleware.php");
 usersOnly();
+
+$expenses = selectAll('Expenditure', ['UserID' => $_SESSION['UserID']]);
 ?>
 
 <!DOCTYPE html>
@@ -144,43 +146,15 @@ usersOnly();
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>12/08/2023</td>
-                      <td>Entertainment</td>
-                      <td>$20</td>
-                      <td>monthly Subscription to Netflix</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>15/08/2023</td>
-                      <td>Others</td>
-                      <td>$180</td>
-                      <td>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>20/08/2023</td>
-                      <td>Entertainment</td>
-                      <td>$50</td>
-                      <td>monthly Subscription to Spotify</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>5/09/2023</td>
-                      <td>Rent</td>
-                      <td>$200</td>
-                      <td>Lorem ipsum dolor sit amet consectetur.</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>12/08/2023</td>
-                      <td>Entertainment</td>
-                      <td>$20</td>
-                      <td>monthly Subscription to Netflix</td>
-                    </tr>
+                    <?php foreach ($expenses as $key => $expense): ?>
+                      <tr>
+                        <th scope="row"><?= $key + 1 ?></th>
+                        <td><?= $expense['date'] ?></td>
+                        <td><?= getCategoryName($expense['categoryID']) ?></td>
+                        <td><?= $expense['amount'] ?></td>
+                        <td><?= $expense['particulars'] ?></td>
+                      </tr>
+                    <?php endforeach; ?>
                   </tbody>
                 </table>
             </div>
